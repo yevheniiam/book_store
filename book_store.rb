@@ -21,10 +21,6 @@ class InventoryManager
     @items = items
     @shelves = shelves
   end
-  # Сортуємо товари за популярністю - алена
-  def sort_items_by_popularity
-    @items.sort_by { |item| -item.popularity }
-  end
 
   # Сортуємо полиці за доступністю (позиція)
   def sort_shelves_by_position
