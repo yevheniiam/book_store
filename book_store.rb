@@ -15,3 +15,14 @@ class Item
     @popularity = popularity
   end
 end
+# Клас для управління інвентарем (сортування товарів та полиць)  - алена
+class InventoryManager
+  def initialize(items, shelves)
+    @items = items
+    @shelves = shelves
+  end
+
+  # Сортуємо товари за популярністю - алена
+  def sort_items_by_popularity
+    @items.sort_by { |item| -item.popularity }
+  end
