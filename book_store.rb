@@ -44,3 +44,28 @@ class ItemShelfDistributor
   def sort_items_by_popularity
     @items.sort_by { |item| -item.popularity }
   end
+# Приклад використання
+
+# Створюємо масив товарів
+items = [Item.new(1, 10), Item.new(2, 20), Item.new(3, 5)]
+
+# Створюємо масив полиць
+shelves = [Shelf.new(1), Shelf.new(2), Shelf.new(3)]
+
+# 1. Перша людина сортує дані
+inventory_manager = InventoryManager.new(items, shelves)
+
+# Сортуємо товари за популярністю
+sorted_items = inventory_manager.sort_items_by_popularity
+
+# Сортуємо полиці за доступністю
+sorted_shelves = inventory_manager.sort_shelves_by_position
+
+# 2. Друга людина відповідає за розподіл товарів по полицях
+distributor = ItemShelfDistributor.new(sorted_items, sorted_shelves)
+
+# Отримуємо розподілення товарів по полицях
+result = distributor.distribute
+
+# Виводимо результат
+puts result.inspect
