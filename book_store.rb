@@ -44,6 +44,19 @@ class ItemShelfDistributor
   def sort_items_by_popularity
     @items.sort_by { |item| -item.popularity }
   end
+
+  # Розподіл товарів по полицях
+  def distribute
+    result = []
+
+    # Призначаємо кожен товар на полицю
+    @sorted_items.each_with_index do |item, index|
+      result << { item_id: item.id, shelf_position: @sorted_shelves[index].position }
+    end
+
+    result
+  end
+end
 # Приклад використання
 
 # Створюємо масив товарів
